@@ -30,8 +30,40 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
-                    </ul>
+    @guest
+        {{-- Paprasti vartotojai --}}
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('countries.index') }}">Šalys</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('hotels.index') }}">Viešbučiai</a>
+        </li>
+    @else
+        @if (auth()->user()->isAdmin())
+            {{-- Admin meniu --}}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('countries.index') }}">Šalys</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('hotels.index') }}">Viešbučiai</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('orders.index') }}">Užsakymai</a>
+            </li>
+        @else
+            {{-- Paprastų vartotojų meniu --}}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('countries.index') }}">Šalys</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('hotels.index') }}">Viešbučiai</a>
+            </li>
+            {{-- <li class="nav-item">
+                <a class="nav-link" href="{{ route('user.orders') }}">Mano užsakymai</a>
+            </li> --}}
+        @endif
+    @endguest
+</ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
