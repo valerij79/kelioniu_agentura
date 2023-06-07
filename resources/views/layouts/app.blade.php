@@ -58,9 +58,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('hotels.index') }}">Viešbučiai</a>
             </li>
-            {{-- <li class="nav-item">
-                <a class="nav-link" href="{{ route('user.orders') }}">Mano užsakymai</a>
-            </li> --}}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('orders.index') }}">Mano užsakymai</a>
+            </li>
         @endif
     @endguest
 </ul>
